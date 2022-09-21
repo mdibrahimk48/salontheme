@@ -40,6 +40,7 @@
     <!-- News Letter End -->
 
 
+    <!--Footer Code -->
 <?php
     get_footer();
 ?>
