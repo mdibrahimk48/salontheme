@@ -1,7 +1,7 @@
 <div class="space-medium">
         <div class="container">
             <div class="row">
-                <div class="col-md-offset-2 col-md-8">
+                <div class="col-md-offset-2 col-md-12">
                     <div class="mb60 text-center section-title">
                         <!-- section title start-->
                         <h1>salon and barbar service</h1>

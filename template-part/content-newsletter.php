@@ -1,7 +1,7 @@
     <div class="space-medium">
         <div class="container">
             <div class="row">
-                <div class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12">
+                <div class="col-lg-offset-2 col-lg-12 col-md-offset-2 col-md-12 col-sm-12 col-xs-12">
                     <div class="section-title mb40 text-center">
                         <!-- section title start-->
                         <h1>Latest News &amp; Article</h1>
