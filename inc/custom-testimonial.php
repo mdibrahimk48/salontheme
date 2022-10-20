@@ -36,7 +36,7 @@ function create_testimonial_cpt() {
 		'label' => __( 'Testimonial', 'classicsalon' ),
 		'description' => __( '', 'classicsalon' ),
 		'labels' => $labels,
-		'menu_icon' => 'dashicons-products',
+		'menu_icon' => 'dashicons-admin-page',
 		'supports' => array('title', 'editor', 'author', 'post-formats', 'custom-fields'),
 		'taxonomies' => array(),
 		'public' => true,
