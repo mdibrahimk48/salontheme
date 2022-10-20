@@ -16,104 +16,70 @@
 
             // the query (for Post Loop)
 
-                $args = array(
-                    'post_type' => 'mdservice'
-                );
+            $args = array(
+                'post_type' => 'customservice'
+            );
 
-                $the_query = new WP_Query( $args ); ?>
+            $the_query = new WP_Query( $args ); ?>
 
-                <?php if ( $the_query->have_posts() ) : ?>
+            <?php if ( $the_query->have_posts() ) : ?>
 
-                    <!-- pagination here -->
+                <!-- pagination here -->
 
-                    <!-- the loop -->
-                    <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                <!-- the loop -->
+                <?php while ( $the_query->have_posts() ) : $the_query->the_post(); 
+                $image_url;
+                // Image Location.
+                if ( has_post_thumbnail() ) {
+                    $image_url = get_the_post_thumbnail_url(get_the_ID());
+                }
+                else {
+                    $image_url = get_bloginfo('stylesheet_directory') .'/img/about-img.jpg"';
+                }
+                
+                ?>
+                <!-- HTML Code Design -->
 
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                            <div class="service-icon mb-4">
-                                <?php
-                                    $postid = $the_query->post->ID;
-
-                                    $icon_class = get_post_meta($postid, 'icon_class_name', true);
-                                ?>
-                                <i class="<?php echo $icon_class; ?>"></i>
-                            </div>
-                            <h4 class="mb-3"><?php the_title(); ?></h4>
-                            <p class="m-0"><?php the_content(); ?></p>
-                            <a class="btn btn-lg btn-primary rounded-pill" href="">
-                                <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <div class="service-block">
                             <!-- service block -->
                             <div class="service-icon mb20">
                                 <!-- service img -->
-                                <img src="<?php echo get_theme_file_uri('images/service-icon-1.png');?>" alt=""> </div>
+                                <img src="<?php echo $image_url; ?>" alt=""> </div>
                             <!-- service img -->
                             <div class="service-content">
                                 <!-- service content -->
-                                <h2><a href="# " class="title ">traditional cut</a></h2>
-                                <p>Responsive website templates free download html5 with css3 for Hair Salon and Shop website template.</p>
-                                <div class="price ">$45</div>
+                                <h2><a href="# " class="title "><?php the_title(); ?></a></h2>
+                                <p><?php the_content(); ?></p>
+                                <?php
+                                    $postid = $the_query->post->ID;
+
+                                    $price = get_post_meta($postid, 'Price', true);
+                                ?>
+                                <div class="price "><?php echo $price; ?></div>
                             </div>
                             <!-- service content -->
                         </div>
                         <!-- /.service block -->
-                    </div>
-                        
-                    <?php endwhile; ?>
-                    <!-- end of the loop -->
+                </div>
 
-                    <!-- pagination here -->
+                    
+                <?php endwhile; ?>
+                <!-- end of the loop -->
 
-                    <?php wp_reset_postdata(); ?>
+                <!-- pagination here -->
 
-                <?php else : ?>
-                    <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
-                <?php endif; 
+                <?php wp_reset_postdata(); ?>
+            
+            <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 text-center"> <a href="#" class="btn btn-default"> View All Service </a> </div>
+
+            <?php else : ?>
+                <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+            <?php endif; 
             // End the query (for Post Loop) 
 
             ?>
 
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="service-block">
-                        <!-- service block -->
-                        <div class="service-icon mb20">
-                            <!-- service img -->
-                            <img src="<?php echo get_theme_file_uri('images/service-icon-2.png');?>" alt=""> </div>
-                        <!-- service img -->
-                        <div class="service-content">
-                            <!-- service content -->
-                            <h2><a href="#" class="title ">MUSTACHE TRIM</a></h2>
-                            <p>Free Responsive HTML5 CSS3 Website Template for hair salon and beauty salon.</p>
-                            <div class="price">$45</div>
-                        </div>
-                        <!-- service content -->
-                    </div>
-                    <!-- /.service block -->
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="service-block">
-                        <!-- service block -->
-                        <div class="service-icon mb20">
-                            <!-- service img -->
-                            <img src="<?php echo get_theme_file_uri('images/service-icon-3.png');?>" alt=""> </div>
-                        <!-- service img -->
-                        <div class="service-content">
-                            <!-- service content -->
-                            <h2><a href="#" class="title ">BEARD TRIM</a></h2>
-                            <p>Responsive website templates free download html with css.</p>
-                            <div class="price ">$45</div>
-                        </div>
-                        <!-- service content -->
-                    </div>
-                    <!-- /.service block -->
-                </div>
-                <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12 text-center"> <a href="#" class="btn btn-default"> View All Service </a> </div>
             </div>
         </div>
     </div>
