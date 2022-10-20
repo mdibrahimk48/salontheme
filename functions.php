@@ -72,6 +72,7 @@ if(!function_exists('salontheme')){
 
 // Included Functions
 require_once('inc/custom-services.php');
+require_once('inc/custom-testimonial.php');
 
 
 ?>
