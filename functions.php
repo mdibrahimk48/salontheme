@@ -74,5 +74,4 @@ if(!function_exists('salontheme')){
 require_once('inc/custom-services.php');
 require_once('inc/custom-testimonial.php');
 
-
 ?>
